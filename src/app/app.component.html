@@ -13,8 +13,10 @@
     <div style="width: 85%">
         <ul class="candidate" style="width: 100%">
             <li  *ngFor="let candidate of candidates">
-                <div *ngFor="let loop of candidate.voteCount" style="display: inline-block" class="vote">
-
+                <div *ngFor="let loop of candidate.voteCount" style="display: inline-block">
+                    <span *ngIf="candidate.win===true" class="vote" style="background-color: #4CAF50;" ></span>
+                    <span *ngIf="candidate.win===false" class="vote" style="background-color: red;" ></span>
+                    <span *ngIf="candidate.win===null" class="vote" style="background-color: blue;" ></span>
                 </div>
                 <span style="vertical-align: super;" *ngIf="candidate.voteCount.length>0">Total Vote:{{candidate.voteCount.length}}</span>
             </li>
