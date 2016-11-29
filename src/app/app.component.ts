@@ -32,22 +32,26 @@ export class AppComponent {
   // selectedCandidate: Candidate;
 
   onSelect(candidate: Candidate): void {
-    candidate.voteCount.push('vote');
+
     let allCount = [];
     for (let i=0;i<this.candidates.length;i++) {
       allCount.push(this.candidates[i].voteCount.length);
     }
-
+    candidate.voteCount.push('vote');
     this.voteState.minVote = Math.min(...allCount);
     this.voteState.maxVote = Math.max(...allCount);
     for (let i=0;i<this.candidates.length;i++) {
-      if(candidate.voteCount.length >= this.voteState.maxVote){
+      if(candidate.voteCount.length > this.voteState.maxVote){
         candidate.win=true;
         this.candidates[i].win=false;
       }
+      if(candidate.voteCount.length == this.voteState.maxVote && this.candidates[i].voteCount.length == this.voteState.maxVote){
+        candidate.win=true;
+        this.candidates[i].win=true;
+      }
       if(candidate.voteCount.length <= this.voteState.minVote){
       candidate.win=false;
-    }
+      }
     }
     
     
