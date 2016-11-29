@@ -1,10 +1,23 @@
 <h1>{{title}}</h1>
-<h2>Cadidates</h2>
+
+<h4>Cadidate Add</h4>
+<div class="formStyle">
+    <div>
+        <label for="name">Name</label>
+        <input id="name" #name type="text" />
+    </div>
+    <div>
+        <input hidden id="id" #id value="{{candidates.length + 1}}" />
+    </div>
+    <button class="submit" (click)="addCandidate(name.value,id.value)"> Create</button>
+</div>
+
+
+<h4>Cadidates List</h4>
 <div style="width: 100%; display: inline-flex">
     <div style="width: 15%">
         <ul class="candidate">
             <li  *ngFor="let candidate of candidates"
-                 [class.selected]="candidate === selectedCandidate"
                  (click)="onSelect(candidate)">
                 <span class="badge">{{candidate.id}}</span> {{candidate.name}}
             </li>
@@ -24,6 +37,7 @@
         </ul>
     </div>
 </div>
+
 <!--<div *ngIf="selectedCandidate">-->
     <!--<h2>{{selectedCandidate.name}} details!</h2>-->
     <!--<div><label>id: </label>{{selectedCandidate.id}}</div>-->
