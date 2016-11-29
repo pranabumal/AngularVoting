@@ -19,6 +19,7 @@
                     <span *ngIf="candidate.win===null" class="vote" style="background-color: blue;" ></span>
                 </div>
                 <span style="vertical-align: super;" *ngIf="candidate.voteCount.length>0">Total Vote:{{candidate.voteCount.length}}</span>
+                <span style="vertical-align: super;color:green;" *ngIf="candidate.win===true">  #Wining</span>
             </li>
         </ul>
     </div>
