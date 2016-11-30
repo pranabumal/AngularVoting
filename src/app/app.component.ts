@@ -44,7 +44,7 @@ export class AppComponent {
                 if(this.candidates[i].voteCount.length == this.voteState.maxVote){
                     this.candidates[i].win=true;
                 }
-                if(this.candidates[i].voteCount.length < this.voteState.maxVote && this.candidates[i].voteCount.length > (this.voteState.minVote==0 ? 1:this.voteState.minVote)){
+                if(this.candidates[i].voteCount.length < this.voteState.maxVote && this.candidates[i].voteCount.length >this.voteState.minVote){
                     this.candidates[i].win=null;
                 }
 
